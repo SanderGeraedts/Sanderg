@@ -1,35 +1,24 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import styled from "@emotion/styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import Wrapper from "./wrapper"
+
+const Header = styled.header`
+  background: #20232a;
+  margin: 0;
+`
+const Title = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-size: 42px;
+  line-height: 60px;
+
+  span {
+    color: #ff7e06;
+  }
+`
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
@@ -39,4 +28,15 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+export default ({ siteTitle }) => (
+  <Header>
+    <Wrapper>
+      <h1>
+        <Title to="/">
+          {siteTitle}
+          <span>.</span>nl
+        </Title>
+      </h1>
+    </Wrapper>
+  </Header>
+)
