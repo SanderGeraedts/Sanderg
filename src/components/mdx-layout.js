@@ -18,8 +18,11 @@ const shortcodes = { Link } // Provide common components here
 
 export default function MdxTemplate({ data: { mdx } }) {
   return (
-    <Layout title={mdx.frontmatter.title}>
-      <SEO title={mdx.frontmatter.title} />
+    <Layout>
+      <SEO
+        title={mdx.frontmatter.title}
+        description={mdx.frontmatter.description}
+      />
       <MDXProvider components={shortcodes}>
         <MDXRenderer>{mdx.body}</MDXRenderer>
       </MDXProvider>
@@ -34,6 +37,7 @@ export const pageQuery = graphql`
       body
       frontmatter {
         title
+        description
       }
     }
   }

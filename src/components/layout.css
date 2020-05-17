@@ -15,3 +15,7 @@ h6 {
   font-family: "VT323", monospace;
   margin: 0;
 }
+
+h1 {
+  text-align: center;
+}
