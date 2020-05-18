@@ -13,8 +13,9 @@ import { Link } from "gatsby"
 
 import Layout from "./layout"
 import SEO from "./seo"
+import { Center } from "./helper"
 
-const shortcodes = { Link } // Provide common components here
+const shortcodes = { Link, Center } // Provide common components here
 
 export default function MdxTemplate({ data: { mdx } }) {
   return (

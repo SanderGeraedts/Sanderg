@@ -8,10 +8,6 @@ import Wrapper from "./wrapper"
 const Header = styled.header`
   background: #20232a;
   margin: 0;
-
-  h1 {
-    text-align: left;
-  }
 `
 const Title = styled(Link)`
   color: white;
