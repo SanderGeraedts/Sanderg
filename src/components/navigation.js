@@ -8,11 +8,6 @@ import blog from "../images/blog.svg"
 import contact from "../images/contact.svg"
 import portfolio from "../images/portfolio.svg"
 
-import aboutMeActive from "../images/about-me-active.svg"
-import blogActive from "../images/blog-active.svg"
-import contactActive from "../images/contact-active.svg"
-import portfolioActive from "../images/portfolio-active.svg"
-
 const Nav = styled.nav`
   background: #20232a;
   position: fixed;
@@ -42,16 +37,29 @@ const LinkButton = styled(Link)`
   justify-content: center;
   height: 100%;
   font-family: "VT323", monospace;
-  color: white;
+  color: #E5E5E5;
 
-  &.active &#about {
+  &.active#about {
+    color: #61DAFB;
+  }
+
+  &.active#blog {
+    color: #A676D7;
+  }
+
+  &.active#portfolio {
+    color: #4FC08D;
+  }
+
+  &.active#contact {
+    color: #DD0031;
   }
 `
 
 const Navigation = () => {
-  const [aboutMeImg, setAboutMeImg] = useState(aboutMe)
-  const [blogImg, setBlogImg] = useState(blog)
-  const [portfolioImg, setPortfolioImg] = useState(portfolio)
+  const [aboutMeClass, setAboutMeImg] = useState("")
+  const [blogClass, setBlogImg] = useState(blog)
+  const [portfolioClass, setPortfolioImg] = useState(portfolio)
   const [contactImg, setContactImg] = useState(contact)
 
   const setActiveImage = path => {
@@ -60,16 +68,16 @@ const Navigation = () => {
 
       switch (path) {
         case "/about-me":
-          setAboutMeImg(active ? aboutMeActive : aboutMe)
+          setAboutMeImg(active ? "active" : "")
           break
         case "/posts":
-          setBlogImg(active ? blogActive : blog)
+          setBlogImg(active ? "active" : "")
           break
         case "/portfolio":
-          setPortfolioImg(active ? portfolioActive : portfolio)
+          setPortfolioImg(active ? "active" : "")
           break
         case "/contact":
-          setContactImg(active ? contactActive : contact)
+          setContactImg(active ? "active" : "")
           break
         default:
           break
@@ -88,42 +96,42 @@ const Navigation = () => {
     <Nav>
       <ul>
         <li>
-          <LinkButton
+          <LinkButton id="about" className={aboutMeClass}
             to="/about-me"
-            onMouseEnter={() => setAboutMeImg(aboutMeActive)}
+            onMouseEnter={() => setAboutMeImg("active")}
             onMouseLeave={() => setActiveImage("/about-me")}
           >
-            <img src={aboutMeImg} alt="Een icoon voor de Over mij pagina" />
+            <img src={aboutMe} alt="Een icoon voor de Over mij pagina" />
             over mij
           </LinkButton>
         </li>
         <li>
-          <LinkButton
+          <LinkButton id="blog" className={blogClass}
             to="/posts"
-            onMouseEnter={() => setBlogImg(blogActive)}
+            onMouseEnter={() => setBlogImg("active")}
             onMouseLeave={() => setActiveImage("/posts")}
           >
-            <img src={blogImg} alt="Een icoon voor de Blogposts pagina" />
+            <img src={blog} alt="Een icoon voor de Blogposts pagina" />
             blog
           </LinkButton>
         </li>
         <li>
-          <LinkButton
+          <LinkButton id="portfolio" className={portfolioClass}
             to="/portfolio"
-            onMouseEnter={() => setPortfolioImg(portfolioActive)}
+            onMouseEnter={() => setPortfolioImg("active")}
             onMouseLeave={() => setActiveImage("/portfolio")}
           >
-            <img src={portfolioImg} alt="Een icoon voor de portfolio pagina" />
+            <img src={portfolio} alt="Een icoon voor de portfolio pagina" />
             portfolio
           </LinkButton>
         </li>
         <li>
-          <LinkButton
+          <LinkButton id="contact" className={contactImg}
             to="/contact"
-            onMouseEnter={() => setContactImg(contactActive)}
+            onMouseEnter={() => setContactImg("active")}
             onMouseLeave={() => setActiveImage("/contact")}
           >
-            <img src={contactImg} alt="Een icoon voor de Contact pagina" />
+            <img src={contact} alt="Een icoon voor de Contact pagina" />
             contact
           </LinkButton>
         </li>
