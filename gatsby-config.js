@@ -1,6 +1,16 @@
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = "https://www.sanderg.nl",
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+} = process.env
+const isNetlifyProduction = NETLIFY_ENV === "production"
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL
+
 module.exports = {
   siteMetadata: {
     title: `Sanderg`,
+    siteUrl,
     description: `Personal portfolio of Front-end Developer Sander Geraedts, based in Veendam, Groningen, the Netherlands.`,
     author: `Sander Geraedts`,
   },
@@ -26,6 +36,14 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve("./src/components/layout.js"),
         },
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 920,
+            },
+          },
+        ],
       },
     },
     `gatsby-transformer-sharp`,
@@ -54,7 +72,28 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /images/, // See below to configure properly
+          include: /images/,
+        },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-robots-txt",
+      options: {
+        resolveEnv: () => NETLIFY_ENV,
+        env: {
+          production: {
+            policy: [{ userAgent: "*" }],
+          },
+          "branch-deploy": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
+          "deploy-preview": {
+            policy: [{ userAgent: "*", disallow: ["/"] }],
+            sitemap: null,
+            host: null,
+          },
         },
       },
     },

@@ -35,7 +35,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     if (node.frontmatter.path) {
       createPage({
         // This is the slug you created before
-        // (or `node.frontmatter.slug`)
         path: node.frontmatter.path,
         // This component will wrap our MDX content
         component: path.resolve(`./src/components/mdx-layout.js`),

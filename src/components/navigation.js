@@ -1,5 +1,4 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 
@@ -40,6 +39,7 @@ const LinkButton = styled(Link)`
   color: #e5e5e5;
   text-align: center;
   transition: color 0.1s ease-in-out;
+  text-decoration: none;
 
   &.active#about {
     color: #61dafb;
