@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 
-import aboutMe from "../images/about-me.svg"
-import blog from "../images/blog.svg"
-import contact from "../images/contact.svg"
-import portfolio from "../images/portfolio.svg"
+import AboutMeImg from "../images/about-me.svg"
+import BlogImg from "../images/blog.svg"
+import ContactImg from "../images/contact.svg"
+import PortfolioImg from "../images/portfolio.svg"
 
 const Nav = styled.nav`
   background: #20232a;
@@ -16,18 +16,18 @@ const Nav = styled.nav`
   height: 100px;
 
   ul {
-      display: flex;
-      justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+
+    li {
+      width: 100%;
       margin: 0;
       padding: 0;
-      list-style: none;
-      height: 100%;
-
-      li {
-          width: 100%
-          margin: 0;
-          padding: 0;
-      }
+    }
   }
 `
 
@@ -37,30 +37,54 @@ const LinkButton = styled(Link)`
   justify-content: center;
   height: 100%;
   font-family: "VT323", monospace;
-  color: #E5E5E5;
+  color: #e5e5e5;
+  text-align: center;
+  transition: color 0.1s ease-in-out;
 
   &.active#about {
-    color: #61DAFB;
+    color: #61dafb;
+
+    svg {
+      fill: #61dafb;
+    }
   }
 
   &.active#blog {
-    color: #A676D7;
+    color: #a676d7;
+
+    svg {
+      fill: #a676d7;
+    }
   }
 
   &.active#portfolio {
-    color: #4FC08D;
+    color: #4fc08d;
+
+    svg {
+      fill: #4fc08d;
+    }
   }
 
   &.active#contact {
-    color: #DD0031;
+    color: #dd0031;
+
+    svg {
+      fill: #dd0031;
+    }
+  }
+
+  svg {
+    margin: 0 auto;
+    transition: all 0.1s ease-in-out;
+    fill: #e5e5e5;
   }
 `
 
 const Navigation = () => {
   const [aboutMeClass, setAboutMeImg] = useState("")
-  const [blogClass, setBlogImg] = useState(blog)
-  const [portfolioClass, setPortfolioImg] = useState(portfolio)
-  const [contactImg, setContactImg] = useState(contact)
+  const [blogClass, setBlogImg] = useState("")
+  const [portfolioClass, setPortfolioImg] = useState("")
+  const [contactImg, setContactImg] = useState("")
 
   const setActiveImage = path => {
     if (window && window.location) {
@@ -96,56 +120,56 @@ const Navigation = () => {
     <Nav>
       <ul>
         <li>
-          <LinkButton id="about" className={aboutMeClass}
+          <LinkButton
+            id="about"
+            className={aboutMeClass}
             to="/about-me"
             onMouseEnter={() => setAboutMeImg("active")}
             onMouseLeave={() => setActiveImage("/about-me")}
           >
-            <img src={aboutMe} alt="Een icoon voor de Over mij pagina" />
+            <AboutMeImg alt="Een icoon voor de Over mij pagina" />
             over mij
           </LinkButton>
         </li>
         <li>
-          <LinkButton id="blog" className={blogClass}
+          <LinkButton
+            id="blog"
+            className={blogClass}
             to="/posts"
             onMouseEnter={() => setBlogImg("active")}
             onMouseLeave={() => setActiveImage("/posts")}
           >
-            <img src={blog} alt="Een icoon voor de Blogposts pagina" />
+            <BlogImg alt="Een icoon voor de Blogposts pagina" />
             blog
           </LinkButton>
         </li>
         <li>
-          <LinkButton id="portfolio" className={portfolioClass}
+          <LinkButton
+            id="portfolio"
+            className={portfolioClass}
             to="/portfolio"
             onMouseEnter={() => setPortfolioImg("active")}
             onMouseLeave={() => setActiveImage("/portfolio")}
           >
-            <img src={portfolio} alt="Een icoon voor de portfolio pagina" />
+            <PortfolioImg alt="Een icoon voor de portfolio pagina" />
             portfolio
           </LinkButton>
         </li>
         <li>
-          <LinkButton id="contact" className={contactImg}
+          <LinkButton
+            id="contact"
+            className={contactImg}
             to="/contact"
             onMouseEnter={() => setContactImg("active")}
             onMouseLeave={() => setActiveImage("/contact")}
           >
-            <img src={contact} alt="Een icoon voor de Contact pagina" />
+            <ContactImg alt="Een icoon voor de Contact pagina" />
             contact
           </LinkButton>
         </li>
       </ul>
     </Nav>
   )
-}
-
-Navigation.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Navigation.defaultProps = {
-  siteTitle: ``,
 }
 
 export default Navigation
