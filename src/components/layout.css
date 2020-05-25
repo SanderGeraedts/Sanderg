@@ -15,3 +15,18 @@ h6 {
   font-family: "VT323", monospace;
   margin: 0;
 }
+
+blockquote {
+  background: #f6f6f6;
+  font-style: italic;
+  margin: 0;
+  padding: 20px;
+}
+
+blockquote > p:first-child {
+  margin-top: 0;
+}
+
+blockquote > p:last-child {
+  margin-bottom: 0;
+}
