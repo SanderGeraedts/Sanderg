@@ -5,8 +5,6 @@
    * Turn off format on save on this document, else there will be a whitespace
    * inserted before the comma and period after the a-tags.
    */
-
-  import Image from "svelte-image";
 </script>
 
 <style>

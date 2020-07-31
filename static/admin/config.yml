@@ -15,7 +15,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
-  - name: "portfolios"
+  - {name: "portfolios"
     label: Portfolios"
     folder: "src/content/portfolio"
     create: true
@@ -23,4 +23,4 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Body", name: "body", widget: "markdown" }}
