@@ -55,3 +55,7 @@ a {
   color: var(--color-link);
   text-decoration-color: var(--color-link-td);
 }
+
+img {
+  max-width: 100%;
+}
