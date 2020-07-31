@@ -14,7 +14,7 @@ export function get(req, res, next) {
 
   // Reading correct file
   const post = fs.readFileSync(
-    path.resolve("src/content/portfolio", `${slug}.md`),
+    path.resolve("src/content/posts", `${slug}.md`),
     "utf-8"
   );
 

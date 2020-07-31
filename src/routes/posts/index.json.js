@@ -36,7 +36,7 @@ function sortPosts(posts) {
 }
 
 export function get(req, res) {
-  const posts = getAllPosts("src/content/portfolio");
+  const posts = getAllPosts("src/content/posts");
 
   const sorted = sortPosts(posts);
 

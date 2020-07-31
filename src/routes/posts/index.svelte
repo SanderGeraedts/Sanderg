@@ -1,6 +1,6 @@
 <script context="module">
   export function preload({ params, query }) {
-    return this.fetch(`portfolio.json`)
+    return this.fetch(`posts.json`)
       .then(r => r.json())
       .then(posts => {
         return { posts };
@@ -20,7 +20,7 @@
 </style>
 
 <svelte:head>
-  <title>Portfolio | Sanderg.nl</title>
+  <title>Posts</title>
 </svelte:head>
 
 <h1>Recent posts</h1>
@@ -32,7 +32,7 @@
 				the user hovers over the link or taps it, instead of
 				waiting for the 'click' event -->
     <li>
-      <a rel="prefetch" href="portfolio/{post.slug}">{post.title}</a>
+      <a rel="prefetch" href="posts/{post.slug}">{post.title}</a>
     </li>
   {/each}
 </ul>

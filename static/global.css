@@ -30,6 +30,16 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--color-background);
+  min-height: calc(100vh - 80px);
+}
+
+@media (max-width: 750px) {
+  html {
+    background-color: var(--color-navigation);
+  }
+  body {
+    margin-bottom: 80px;
+  }
 }
 
 h1,

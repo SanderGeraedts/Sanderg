@@ -32,6 +32,7 @@
       position: fixed;
       bottom: 0;
       left: 0;
+      z-index: 100;
       width: 100%;
       background-color: var(--color-navigation);
     }
@@ -104,7 +105,7 @@
     <li>
       <a
         aria-current={segment === 'over-mij' ? 'page' : undefined}
-        href="about">
+        href="over-mij">
         <AboutIcon />
         over mij
       </a>

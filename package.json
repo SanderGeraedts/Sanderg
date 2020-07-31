@@ -1,6 +1,6 @@
 {
-  "name": "TODO",
-  "description": "TODO",
+  "name": "Sanderg.nl",
+  "description": "Personal website for the Front-end Developer Sander Geraedts.",
   "version": "0.0.1",
   "scripts": {
     "dev": "sapper dev",
@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "gray-matter": "^4.0.2",
+    "marked": "^1.1.1",
     "polka": "next",
     "sirv": "^0.4.0"
   },
