@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Rowdies:wght@400;700&display=swap");
+
+:root {
+  /* Color variables */
+  --color-orange: #ff3205;
+  --color-beige: #fff8f2;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray: #444444;
+  --color-gray-light: #a0a0a0;
+
+  /* Location colors */
+  --color-heading: var(--color-gray);
+  --color-link: var(--color-orange);
+  --color-link-td: var(--color-gray-light);
+  --color-link-nav: var(--color-black);
+  --color-link-nav-sm: var(--color-white);
+  --color-link-nav-sm-hover: var(--color-orange);
+  --color-logo: var(--color-black);
+  --color-background: var(--color-beige);
+  --color-navigation: var(--color-gray);
+
+  /* Fonts */
+  --font-main: "Montserrat", sans-serif;
+  --font-heading: "Rowdies", cursive;
+}
+
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-color: var(--color-link-td);
+}
