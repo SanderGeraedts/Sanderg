@@ -1,7 +1,4 @@
-import path from "path";
-import fs from "fs";
-import marked from "marked";
-import grayMatter from "gray-matter";
+import { getMarkdown } from "../../functions/markdown";
 
 export function get(req, res, next) {
   // the `slug` parameter is available because
@@ -12,23 +9,5 @@ export function get(req, res, next) {
     "Content-Type": "application/json"
   });
 
-  // Reading correct file
-  const post = fs.readFileSync(
-    path.resolve("src/content/over-mij.md"),
-    "utf-8"
-  );
-
-  // Parse Front matter from file
-  const { data, content } = grayMatter(post);
-
-  // Render html from string
-  const renderer = new marked.Renderer();
-  const html = marked(content, { renderer });
-
-  res.end(
-    JSON.stringify({
-      ...data,
-      html
-    })
-  );
+  res.end(getMarkdown("src/content", "over-mij"));
 }
