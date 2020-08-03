@@ -20,7 +20,7 @@
 </style>
 
 <svelte:head>
-  <title>Posts</title>
+  <title>Posts | Sanderg.nl</title>
 </svelte:head>
 
 <h1>Recent posts</h1>

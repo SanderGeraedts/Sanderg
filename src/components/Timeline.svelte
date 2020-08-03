@@ -1,0 +1,41 @@
+<script>
+  import Event from "../components/Event.svelte";
+
+  const events = [
+    { date: new Date("2019-12-01"), html: `Verhuisd naar Veendam.` },
+    {
+      date: new Date("2019-10-01"),
+      html: `Begonnen bij <a href="https://www.dictu.nl/">DICTU</a> via <a href="https://sogeti.nl">Sogeti</a> als Full-stack Developer.`
+    },
+    {
+      date: new Date("2019-7-01"),
+      html: `Met Sogeti naar Ohio gegaan voor een business course aan de Ohio University.`
+    },
+    {
+      date: new Date("2019-7-01"),
+      html: `Bij Sogeti gestart als Front-end Dev.`
+    },
+    { date: new Date("2019-6-01"), html: `Afgestudeerd van Fontys HBO ICT.` },
+    {
+      date: new Date("2017-7-01"),
+      html: `Begonnen als Webdeveloper bij het voormalige Silverbee (nu <a href="https://webcommitment.nl/">Webcommitment</a>) na een succesvol afgeronde stage.`
+    },
+    { date: new Date("2017-2-01"), html: `Stage begonnen bij Silverbee.` }
+  ];
+</script>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+</style>
+
+<div class="timeline">
+  {#each events as event, i}
+    <Event date={event.date} align={i % 2 === 1}>
+      {@html event.html}
+    </Event>
+  {/each}
+</div>

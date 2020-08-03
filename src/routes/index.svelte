@@ -1,5 +1,6 @@
 <script>
   import Intro from "../components/Intro.svelte";
+  import Timeline from "../components/Timeline.svelte";
 </script>
 
 <style>
@@ -11,3 +12,4 @@
 </svelte:head>
 
 <Intro />
+<Timeline />
