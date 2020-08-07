@@ -21,6 +21,7 @@
   --color-logo: var(--color-black);
   --color-background: var(--color-beige);
   --color-navigation: var(--color-gray);
+  --color-timeline: var(--color-gray);
 
   /* Fonts */
   --font-main: "Montserrat", sans-serif;

@@ -29,6 +29,19 @@
     display: flex;
     flex-flow: column;
     width: 100%;
+    position: relative;
+  }
+
+  @media (min-width: 751px) {
+    .timeline::after {
+      content: "";
+      background-color: var(--color-timeline);
+      width: 4px;
+      position: absolute;
+      top: 30px;
+      left: calc(50% - 2px);
+      height: 100%;
+    }
   }
 </style>
 
